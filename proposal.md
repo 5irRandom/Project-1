@@ -9,7 +9,7 @@ An application that allows you to search your favorite song title, and displays 
 # User Story
 <li>As A Music lover</li>
 <li>I WANT to see the lyrics to my favorite song</li>
-<li>TO THAT I CAN learn the lyrics, view the video, and see artist details</li>
+<li>SO THAT I CAN learn the lyrics, view the video, and see artist details</li>
 
 # API Key
 We will be using lyrics.ovh and two You Tube music APIs.
