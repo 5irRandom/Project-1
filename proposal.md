@@ -14,7 +14,7 @@ An application that allows you to search your favorite song title, and displays 
 # API Keys
 We will be using lyrics.ovh and a YouTube music API.
 
-https://api.lyrics.ovh/v1/artist/title
+https://lyricsovh.docs.apiary.io/#
 http://www.youtube.com/v/VIDEO_ID?version=3
 
 # WireFrame
