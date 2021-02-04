@@ -11,15 +11,27 @@
 
 <body>
 
+    <h1 class= "text-center">Karaoke Time</h1>
     <div class = "container">
         <form>
-            <label>Search for a song</label>
-            <input type="text" id="songInput">
-            <label>Search for an artist</label>
-            <input type="text" id="artistInput">
+            <div class="grid-container">
+              <div class="grid-x grid-padding-x">
+                <div class="medium-6 cell">
+                  <label class= "text-center h4 ">Search for an Artist
+                    <input type="text" id="artistInput" placeholder="Artist">
+                  </label>
+                </div>
+                <div class="medium-6 cell">
+                  <label class = "text-center h4 ">Search for a Song
+                    <input type="text" id = "songInput" placeholder="Song">
+                  </label>
+                </div>
+                <a type= "button" class="button expanded" href="./results-page.html">Search</a>
+              </div>
+            </div>
         </form>
-            <a type= "button" class="button primary" class="button large" href="./results-page.html">Search</a>
-
+        <!-- <a type= "button" class="button primary" class="button large center" href=>Search</a> -->
+        
     </div>
     <script src='assets/script.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
@@ -27,3 +39,9 @@
 </body>
 
 </html>
+<!-- <form>
+    <label>Search for a song</label>
+    <input type="text" id="songInput">
+    <label>Search for an artist</label>
+    <input type="text" id="artistInput">
+</form> -->
