@@ -7,7 +7,7 @@
 // optional: display previous searches
 var lyricsAPI = "https://lyricsovh.docs.apiary.io/#reference";
 var searchURL = "https://api.lyrics.ovh/v1/";
-var youtubeURL = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyABnDA061k_mkfDbZlLVxHUepez69vgNCE&type=video&q=";
+var youtubeURL = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyABnDA061k_mkfDbZlLVxHUepez69vgNCE&type=video&videoEmbeddable=true&q=";
 var artist = "";
 var title = "";
 var searchButton = document.getElementById("search");
@@ -43,7 +43,7 @@ function getVideo(searchTerm) {
 searchButton.addEventListener("click", function (event) {
     artist = document.getElementById("artistInput").value;
     title = document.getElementById("songInput").value;
-    console.log(title);
+    search = (title + " " + artist);
     getLyrics(artist, title);
-    getVideo(title); //Just an example of how we could implement it, it just outputs it to the console for now
+    getVideo(search); //Just an example of how we could implement it, it just outputs it to the console for now
 })
