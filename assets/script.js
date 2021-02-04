@@ -11,7 +11,13 @@ var artist = "";
 var title = "";
 var searchButton = document.getElementById("search");
 
+searchButton.addEventListener("click", function (event) {
+    artistInput.textContent = artist;
+    songInput.textContent = title;
+    getLyrics();
+
 function getLyrics() {
+    var searchURL = "https://api.lyrics.ovh/v1/";
     fetch(searchURL + artist + "/" + title)
         .then(function (response) {
             console.log(response);
@@ -21,9 +27,4 @@ function getLyrics() {
             console.log(data)
         })
 }
-
-searchButton.addEventListener("click", function (event) {
-    artistInput.textContent = artist;
-    songInput.textContent = title;
-    getLyrics();
 })
