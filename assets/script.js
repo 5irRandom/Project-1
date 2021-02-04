@@ -7,8 +7,8 @@
 // optional: display previous searches
 var lyricsAPI = "https://lyricsovh.docs.apiary.io/#reference";
 var searchURL = "https://api.lyrics.ovh/v1/";
-var artistInput = document.getElementById("artistInput").value;
-var songInput = document.getElementById("songInput").value;
+var youtubeURL = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyABnDA061k_mkfDbZlLVxHUepez69vgNCE&type=video&videoEmbeddable=true&q=";
+var artist = "";
 var title = "";
 var searchButton = document.getElementById("search");
 
@@ -26,23 +26,24 @@ function getLyrics(artist, title) {
 
 // Minor WIP but it does work by just inputting a search term, it will then output 5 results to the console and the first one's video link
 function getVideo(searchTerm) {
-    fetch('https://www.googleapis.com/youtube/v3/search?key=AIzaSyABnDA061k_mkfDbZlLVxHUepez69vgNCE&q=' + searchTerm + '&type=video')
-        .then(response => {
-            return response.json()
-        })
-        .then(data => {
-            console.log(data)
-            var videoId = data.items[0].id.videoId
-            console.log("https://youtu.be/" + videoId)
-        })
-        .catch(err => {
-            console.log("Error: " + err)
-        });
+    fetch(youtubeURL + searchTerm)
+    .then(response => {
+        return response.json()
+    })
+    .then (data => {
+        console.log(data)
+        var videoId = data.items[0].id.videoId
+        console.log("https://youtu.be/" + videoId)
+    })
+    .catch(err => {
+        console.log("Error: " + err)
+    });
 }
 
 searchButton.addEventListener("click", function (event) {
-    artistInput = artist;
-    songInput = title;
+    artist = document.getElementById("artistInput").value;
+    title = document.getElementById("songInput").value;
+    search = (title + " " + artist);
     getLyrics(artist, title);
-    getVideo(songInput.textContent); //Just an example of how we could implement it, it just outputs it to the console for now
+    getVideo(search); //Just an example of how we could implement it, it just outputs it to the console for now
 })
