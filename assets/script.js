@@ -15,11 +15,10 @@ var searchButton = document.getElementById("search");
 function getLyrics(artist, title) {
     fetch(searchURL + artist + "/" + title)
         .then(function (response) {
-            console.log(response);
             return response.json();
         })
         .then(function (data) {
-            console.log(data)
+            sessionStorage.setItem("lyrics", data.lyrics)
         })
 }
 
@@ -31,9 +30,9 @@ function getVideo(searchTerm) {
         return response.json()
     })
     .then (data => {
-        console.log(data)
         var videoId = data.items[0].id.videoId
-        console.log("https://youtu.be/" + videoId)
+        var videoLink = "https://youtu.be/" + videoId
+        sessionStorage.setItem("videoLink", videoLink)
     })
     .catch(err => {
         console.log("Error: " + err)
@@ -46,4 +45,5 @@ searchButton.addEventListener("click", function (event) {
     search = (title + " " + artist);
     getLyrics(artist, title);
     getVideo(search); //Just an example of how we could implement it, it just outputs it to the console for now
+    document.location.href = 'results-page.html'
 })
