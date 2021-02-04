@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="results_styles.css">
     <title>Results</title>
 </head>
 
@@ -15,15 +15,15 @@
         <!-- nav to return to search -->
         <nav><a href="index.html">Back to search</a></nav>
         <div class="row">
-            <div class="col-md-5" id="lyrics">
+            <div class="col-sm-6" id="lyrics">
                 <h3>Lyrics</h3>
                 <div class="slider vertical" data-slider data-initial-start="25" data-end="200" data-vertical="true">
                     <span class="slider-handle" data-slider-handle role="slider" tabindex="1"></span>
                     <span class="slider-fill" data-slider-fill></span>
-                    <input type="hidden">
+                    <input type="hidden" id="lyrics">
                 </div>
             </div>
-            <div class="col-md-5" id="video">
+            <div class="col-sm-6" id="video">
                 <h3>Music Video</h3>
             </div>
         </div>
