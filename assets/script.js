@@ -7,7 +7,8 @@
 // optional: display previous searches
 var lyricsAPI = "https://lyricsovh.docs.apiary.io/#reference";
 var searchURL = "https://api.lyrics.ovh/v1/";
-var artist = "";
+var artistInput = document.getElementById("artistInput").value;
+var songInput = document.getElementById("songInput").value;
 var title = "";
 var searchButton = document.getElementById("search");
 
@@ -23,7 +24,7 @@ function getLyrics() {
 }
 
 searchButton.addEventListener("click", function (event) {
-    artistInput.textContent = artist;
-    songInput.textContent = title;
+    artistInput = artist;
+    songInput = title;
     getLyrics();
 })
