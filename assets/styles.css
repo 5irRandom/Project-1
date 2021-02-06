@@ -1,3 +1,19 @@
 .container {
     margin: 30px;
 }
+
+/* .modal {
+    visibility: hidden;
+    position: fixed;
+    overflow: auto;
+    width: 400%;
+    height: 400%
+}
+
+.modal-message {
+    display: none;
+    background-color: lightblue;
+    padding: 20px;
+    width: 80%
+} */
+

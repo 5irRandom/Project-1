@@ -12,6 +12,8 @@ var youtubeURL = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyABnDA06
 var artist = "";
 var title = "";
 var searchButton = document.getElementById("search");
+var modal = document.getElementById("errorMessage");
+var modalSpan = document.getElementsByClassName("close")[0];
 var lyricsDone = false;
 var videoDone = false;
 
@@ -25,25 +27,25 @@ function getLyrics(artist, title) {
             sessionStorage.setItem("lyrics", data.lyrics)
             lyricsDone = true;
         })
-}         console.log(searchURL);
+} console.log(searchURL);
 console.log(getLyrics);
 
 
 // Minor WIP but it does work by just inputting a search term, it will then first result's video link
 function getVideo(searchTerm) {
     fetch(youtubeURL + searchTerm)
-    .then(response => {
-        return response.json()
-    })
-    .then (data => {
-        var videoId = data.items[0].id.videoId
-        var videoLink = "https://youtube.com/embed/" + videoId
-        sessionStorage.setItem("videoLink", videoLink)
-        videoDone = true;
-    })
-    .catch(err => {
-        console.log("Error: " + err)
-    });
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            var videoId = data.items[0].id.videoId
+            var videoLink = "https://youtube.com/embed/" + videoId
+            sessionStorage.setItem("videoLink", videoLink)
+            videoDone = true;
+        })
+        .catch(err => {
+            console.log("Error: " + err)
+        });
 }
 
 searchButton.addEventListener("click", function (event) {
@@ -52,7 +54,18 @@ searchButton.addEventListener("click", function (event) {
     search = (title + " " + artist);
     getLyrics(artist, title);
     getVideo(search);
-    setInterval(function(){
+    if (artist === null || title === null) {
+        // modal.style.display = "block";
+        // modalSpan.onclick = function () {
+        //     modal.style.display = "none";
+        // }
+
+        var message = document.getElementById("errorMessage");
+        message.setAttribute('style', 'visibility:visible');
+
+        return;
+    }
+    setInterval(function () {
         if (videoDone === true && lyricsDone === true) {
             document.location.href = 'results-page.html'
         }
