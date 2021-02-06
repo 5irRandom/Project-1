@@ -12,6 +12,8 @@ var youtubeURL = "https://www.googleapis.com/youtube/v3/search?key=AIzaSyABnDA06
 var artist = "";
 var title = "";
 var searchButton = document.getElementById("search");
+var lyricsDone = false;
+var videoDone = false;
 
 // Calls the lyrics api and then stores it to sessionStorage
 function getLyrics(artist, title) {
@@ -21,6 +23,7 @@ function getLyrics(artist, title) {
         })
         .then(function (data) {
             sessionStorage.setItem("lyrics", data.lyrics)
+            lyricsDone = true;
         })
 }          
 
@@ -35,6 +38,7 @@ function getVideo(searchTerm) {
         var videoId = data.items[0].id.videoId
         var videoLink = "https://youtube.com/embed/" + videoId
         sessionStorage.setItem("videoLink", videoLink)
+        videoDone = true;
     })
     .catch(err => {
         console.log("Error: " + err)
@@ -47,5 +51,9 @@ searchButton.addEventListener("click", function (event) {
     search = (title + " " + artist);
     getLyrics(artist, title);
     getVideo(search);
-    setInterval(function(){document.location.href = 'results-page.html'}, 500);
+    setInterval(function(){
+        if (videoDone === true && lyricsDone === true) {
+            document.location.href = 'results-page.html'
+        }
+    }, 500);
 })
