@@ -54,11 +54,6 @@ searchButton.addEventListener("click", function (event) {
 
     if (artist === undefined || title === undefined || artist === null || title === null) {
         return;
-        var message = document.getElementById("error-message");
-        message.setAttribute('style', 'visibility:visible');
-
-        var fixMessage = document.getElementById("error-fix");
-        fixMessage.setAttribute('style', 'visibility:visible');
     }
 
     setInterval(function () {
