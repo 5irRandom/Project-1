@@ -13,27 +13,31 @@
 </head>
 
 <body>
-
-  <h1 class="text-center">Karaoke Time</h1>
-  <div class="container">
-    <form>
-      <div class="grid-container">
-        <div class="grid-x grid-padding-x">
-          <div class="medium-6 cell">
-            <label class="text-center h4"><em>Search for an Artist</em>
+  <header class= "text-center h1">Karaoke Time<hr></header>
+    <!-- <div class = "container"> -->
+    <br>
+    <br>
+        <p class="text-center h3"><em>Please input artist and song name to get your Karaoke started!!!!</em></p>
+    <br>
+    <br>
+    <br>
+    <br>
+        <div class="grid-container">
+            <div class="grid-x grid-padding-x">
+            <div class="medium-6 cell">
+              <label class = "text-center h5 "><em>Search for a Song</em>
+              <input type="text" id = "songInput" placeholder="Song">
+              </label>  
+            </div>
+            <div class="medium-6 cell">
+              <label class= "text-center h5"><em>Search for an Artist</em>
               <input type="text" id="artistInput" placeholder="Artist">
-            </label>
-          </div>
-          <div class="medium-6 cell">
-            <label class="text-center h4 "><em>Search for a Song</em>
-              <input type="text" id="songInput" placeholder="Song">
-            </label>
-          </div>
-
-          <a type="button" id="search" class="button expanded" href="./results-page.html">Search</a>
+              </label>
+              
+            </div>
+          <a type= "button" id="search" class="button expanded warning">Search</a>
         </div>
-      </div>
-    </form>
+    </div>       
 
     <h3 id="error-message" style="visibility: hidden;">Sorry, we couldn't find that tune.</h3>
     <p id="error-fix" style="visibility: hidden;">Double check spelling, and be sure to include both the song and
@@ -41,14 +45,6 @@
 
   </div>
   <script src='assets/script.js'></script>
-  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
-    integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-</body>
+  
 
 </html>
-<!-- <form>
-    <label>Search for a song</label>
-    <input type="text" id="songInput">
-    <label>Search for an artist</label>
-    <input type="text" id="artistInput">
-</form> -->
