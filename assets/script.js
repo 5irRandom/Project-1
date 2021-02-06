@@ -50,9 +50,9 @@ searchButton.addEventListener("click", function (event) {
     videoDone = true;
     // Delete upper later
     setInterval(function(){
-        if (videoDone === true && lyricsDone === true) {
+        // if (videoDone === true && lyricsDone === true) {
             document.location.href = 'results-page.html'
-        }
+        // }
     }, 500);
 })
 
