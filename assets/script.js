@@ -25,7 +25,8 @@ function getLyrics(artist, title) {
             sessionStorage.setItem("lyrics", data.lyrics)
             lyricsDone = true;
         })
-}          
+}         console.log(searchURL);
+console.log(getLyrics);
 
 
 // Minor WIP but it does work by just inputting a search term, it will then first result's video link
