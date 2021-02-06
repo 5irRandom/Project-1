@@ -13,6 +13,7 @@ var artist = "";
 var title = "";
 var searchButton = document.getElementById("search");
 
+// Calls the lyrics api and then stores it to sessionStorage
 function getLyrics(artist, title) {
     fetch(searchURL + artist + "/" + title)
         .then(function (response) {
@@ -25,7 +26,7 @@ function getLyrics(artist, title) {
 console.log(getLyrics);
 
 
-// Minor WIP but it does work by just inputting a search term, it will then output 5 results to the console and the first one's video link
+// Minor WIP but it does work by just inputting a search term, it will then first result's video link
 function getVideo(searchTerm) {
     fetch(youtubeURL + searchTerm)
     .then(response => {
@@ -33,7 +34,7 @@ function getVideo(searchTerm) {
     })
     .then (data => {
         var videoId = data.items[0].id.videoId
-        var videoLink = "https://youtu.be/" + videoId
+        var videoLink = "https://youtube.com/embed/" + videoId
         sessionStorage.setItem("videoLink", videoLink)
     })
     .catch(err => {
@@ -46,6 +47,6 @@ searchButton.addEventListener("click", function (event) {
     title = document.getElementById("songInput").value;
     search = (title + " " + artist);
     getLyrics(artist, title);
-    getVideo(search); //Just an example of how we could implement it, it just outputs it to the console for now
+    getVideo(search);
     setInterval(function(){document.location.href = 'results-page.html'}, 500);
 })
