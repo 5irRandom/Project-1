@@ -9,3 +9,4 @@ var lyricsDiv = document.getElementById("lyrics");
 
 videoDiv.append(videoLink);
 lyricsDiv.append(lyrics);
+
