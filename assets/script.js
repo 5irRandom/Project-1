@@ -32,6 +32,26 @@ console.log(getLyrics);
 // Minor WIP but it does work by just inputting a search term, it will then first result's video link
 function getVideo(searchTerm) {
     fetch(youtubeURL + searchTerm)
+<<<<<<< HEAD
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            var videoId = data.items[0].id.videoId
+            var videoLink = "https://youtu.be/" + videoId
+            sessionStorage.setItem("videoLink", videoLink)
+        })
+        .catch(err => {
+            console.log("Error: " + err)
+        });
+
+    if (artist === undefined || title === undefined || artist === null || title === null)
+        var message = document.getElementById("error-message");
+    message.setAttribute('style', 'visibility:visible');
+
+    var fixMessage = document.getElementById("error-fix");
+    fixMessage.setAttribute('style', 'visibility:visible');
+=======
     .then(response => {
         return response.json()
     })
@@ -44,6 +64,7 @@ function getVideo(searchTerm) {
     .catch(err => {
         console.log("Error: " + err)
     });
+>>>>>>> 520a4f12ec68255cad2505a299e4aedefa1d62f8
 }
 
 searchButton.addEventListener("click", function (event) {
