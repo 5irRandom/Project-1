@@ -1,7 +1,17 @@
+@import 'settings';
 @import 'foundation';
+
+body {
+  background-color: black;
+}
 
 .grid-container {
     background-color: #F1F1F1;
     text-align: center;
     padding: 20px;
   }
+
+.h1 {
+  background-color:black;
+  color: white;
+}
