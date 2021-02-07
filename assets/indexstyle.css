@@ -1,7 +1,8 @@
+@import 'settings';
 @import 'foundation';
 
 body {
-  background-color: rgba(248, 95, 95, 0.61)
+  background-color: black;
 }
 
 .grid-container {
