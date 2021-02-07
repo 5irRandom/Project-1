@@ -15,29 +15,33 @@ function getLyrics(artist, title) {
             return response.json();
         })
         .then(function (data) {
-            sessionStorage.setItem("lyrics", data.lyrics)
-            lyricsDone = true;
+            if (data.lyrics === "") {
+                document.getElementById("modal").style.display = "block"
+            } else {
+                sessionStorage.setItem("lyrics", data.lyrics)
+                lyricsDone = true;
+            }
         })
 }
 
 
 // Minor WIP but it does work by just inputting a search term, it will then first result's video link
-// function getVideo(searchTerm) {
-//     fetch(youtubeURL + searchTerm)
-//     .then(response => {
-//         return response.json()
-//     })
-//     .then (data => {
-//         var videoId = data.items[0].id.videoId
-//         var videoLink = "https://youtube.com/embed/" + videoId
-//         sessionStorage.setItem("videoLink", videoLink)
-//         videoDone = true;
-//     })
-//     .catch(err => {
-//         console.log("Error: " + err)
-//     });
-// }
-// Uncomment this when the api lets us through again
+function getVideo(searchTerm) {
+    fetch(youtubeURL + searchTerm)
+    .then(response => {
+        return response.json()
+    })
+    .then (data => {
+        var videoId = data.items[0].id.videoId
+        var videoLink = "https://youtube.com/embed/" + videoId
+        sessionStorage.setItem("videoLink", videoLink)
+        videoDone = true;
+    })
+    .catch(err => {
+        console.log("Error: " + err)
+        document.getElementById("modal").style.display = "block"
+    });
+}
 
 searchButton.addEventListener("click", function (event) {
     artist = document.getElementById("artistInput").value;
@@ -45,14 +49,6 @@ searchButton.addEventListener("click", function (event) {
     search = (title + " " + artist);
     getLyrics(artist, title);
     // getVideo(search);
-    // Delete lower later
-    sessionStorage.setItem("videoLink", "https://youtube.com/embed/UqLRqzTp6Rk");
-    videoDone = true;
-    // Delete upper later
-    // if (videoDone === false && lyricsDone ===true) {
-       
-
-    // }
     setInterval(function(){
         if (videoDone === true && lyricsDone === true) {
             document.location.href = 'results-page.html'
