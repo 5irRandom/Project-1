@@ -43,6 +43,14 @@ function getVideo(searchTerm) {
     });
 }
 
+setInterval(function(){
+    if(!$('#artistInput').val() || !$('#songInput').val()) {
+        searchButton.classList.add("disabled");
+    } else {
+        searchButton.classList.remove("disabled");
+    }
+}, 500);
+
 searchButton.addEventListener("click", function (event) {
     if (searchButton.classList.contains("disabled")) {
 
