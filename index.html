@@ -7,9 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
     integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
   <link text="stylesheet" href="assets/indexstyle.css">
-
-  <title>Home Kareoke</title>
-
+  <title>Song Finder</title>
 </head>
 
 <body>
@@ -19,7 +17,7 @@
   <!-- <div class = "container"> -->
   <br>
   <br>
-  <p class="text-center h3"><em>Please input artist and song name to get your Karaoke started!</em></p>
+  <p class="text-center h3"><em>Please input artist and song name to get your Karaoke started!!!!</em></p>
   <br>
   <br>
   <br>
@@ -27,42 +25,39 @@
   <div class="grid-container">
     <div class="grid-x grid-padding-x">
       <div class="medium-6 cell">
+        <label class="text-center h5 "><em>Search for a Song</em>
+          <input type="text" id="songInput" placeholder="Song">
+        </label>
+      </div>
+      <div class="medium-6 cell">
         <label class="text-center h5"><em>Search for an Artist</em>
           <input type="text" id="artistInput" placeholder="Artist">
         </label>
       </div>
-      <div class="medium-6 cell">
-        <label class="text-center h5 "><em>Search for a Song</em>
-          <input type="text" id="songInput" placeholder="Song">
-        </label>
-
-      </div>
       <a type="button" id="search" class="button expanded warning">Search</a>
-
-      <h3 id="errorMessage" style="visibility: hidden;">Whoops! We couldn't find that tune. Double check your spelling,
-        and make sure both song and
-        artist are being searched.</h3>
-      <!-- <div id="errorMessage" class="modal">
-        <div class="modal-message">
-          <span class="close">&times;</span>
-          <p>Whoops! We couldn't find that. Please check spelling, and fill out both fields.</p>
-        </div>
-      </div> -->
     </div>
 
+    <button class="button" data-open="reveal_modal">Didn't see anything</button>
+
+    <div class="reveal" id="reveal_modal" data-reveal>
+      <h3>Sorry we couldn't find that tune!</h3>
+      <p>Double check your spelling and make sure the Artist and Song are inputed.</p>
+      <button class="close-button" data-close aria-label="Close reveal" type="button">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <!-- <p id="error-fix" style="visibility: hidden;">Double check spelling, and be sure to include both the song and
+      artist.</p>
+    <h3 id="error-message" style="visibility: hidden;">Sorry, we couldn't find that tune.</h3> -->
   </div>
-
-
-  <!-- </div> -->
-  <script src='assets/script.js'></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
     integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=" crossorigin="anonymous"></script>
-</body>
+  <script>
+    $(document).foundation();
+  </script>
+  <script src='assets/script.js'></script>
+
 
 </html>
-<!-- <form>
-    <label>Search for a song</label>
-    <input type="text" id="songInput">
-    <label>Search for an artist</label>
-    <input type="text" id="artistInput">
-</form> -->
