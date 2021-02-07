@@ -44,17 +44,21 @@ function getVideo(searchTerm) {
 }
 
 searchButton.addEventListener("click", function (event) {
-    artist = document.getElementById("artistInput").value;
-    title = document.getElementById("songInput").value;
-    search = (title + " " + artist);
-    getLyrics(artist, title);
-    // getVideo(search);
-    setInterval(function(){
-        if (videoDone === true && lyricsDone === true) {
-            document.location.href = 'results-page.html'
-        } 
-        
-    }, 500);
+    if (searchButton.classList.contains("disabled")) {
+
+    } else {
+        artist = document.getElementById("artistInput").value;
+        title = document.getElementById("songInput").value;
+        search = (title + " " + artist);
+        getLyrics(artist, title);
+        getVideo(search);
+        setInterval(function(){
+            if (videoDone === true && lyricsDone === true) {
+                document.location.href = 'results-page.html'
+            } 
+            
+        }, 500);
+    }
 })
 
 
