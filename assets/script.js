@@ -49,10 +49,15 @@ searchButton.addEventListener("click", function (event) {
     sessionStorage.setItem("videoLink", "https://youtube.com/embed/UqLRqzTp6Rk");
     videoDone = true;
     // Delete upper later
+    // if (videoDone === false && lyricsDone ===true) {
+       
+
+    // }
     setInterval(function(){
         if (videoDone === true && lyricsDone === true) {
             document.location.href = 'results-page.html'
-        }
+        } 
+        
     }, 500);
 })
 
