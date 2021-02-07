@@ -7,6 +7,11 @@ var title = "";
 var searchButton = document.getElementById("search");
 var lyricsDone = false;
 var videoDone = false;
+var storageString = "";
+storageString = localStorage.getItem('storage');
+if (storageString !== null) {
+    var buttonsStrings = storageString.split(", ");
+}
 
 // Calls the lyrics api and then stores it to sessionStorage
 function getLyrics(artist, title) {
@@ -51,6 +56,39 @@ setInterval(function(){
     }
 }, 500);
 
+function buttonCreate() {
+    buttonPlace = document.getElementById("buttonPlace");
+    for (i = 1; i < buttonsStrings.length; i++) {
+        var button = document.createElement("button");
+        button.textContent = buttonsStrings[i];
+        button.classList.add("button");
+        buttonPlace.appendChild(button);
+        button.addEventListener("click", function (event) {
+            console.log(this.textContent)
+            var split = this.textContent.split(" ");
+            getLyrics(split[1], split[0]);
+            getVideo(this.textContent);
+            setInterval(function(){
+                if (videoDone === true && lyricsDone === true) {
+                    document.location.href = 'results-page.html'
+                }
+            }, 500);
+        })
+    }
+    var clearButton = document.createElement("button");
+    clearButton.textContent = "Clear";
+    clearButton.setAttribute('class', 'button alert');
+    buttonPlace.appendChild(clearButton);
+    clearButton.addEventListener("click", function (event) {
+        localStorage.clear();
+        location.reload();
+    })
+}
+
+if (storageString !== null) {
+buttonCreate();
+}
+
 searchButton.addEventListener("click", function (event) {
     if (searchButton.classList.contains("disabled")) {
 
@@ -58,6 +96,8 @@ searchButton.addEventListener("click", function (event) {
         artist = document.getElementById("artistInput").value;
         title = document.getElementById("songInput").value;
         search = (title + " " + artist);
+        storageString += ", " + search;
+        localStorage.setItem('storage', storageString);
         getLyrics(artist, title);
         getVideo(search);
         setInterval(function(){
@@ -68,5 +108,3 @@ searchButton.addEventListener("click", function (event) {
         }, 500);
     }
 })
-
-
