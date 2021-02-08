@@ -1,5 +1,19 @@
-@import 'settings';
+/* @import 'settings'; */
 @import 'foundation';
+/* @import 'util/util'; */
+
+/* $foundation-palette: (
+  primary: #1779ba,
+  secondary: #767676,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #cc4b37,
+);
+$white: #fefefe;
+$black: #0a0a0a;
+$body-font-color: white;
+
+@include add-foundation-colors; */
 
 body {
   background-color: black;
@@ -14,4 +28,8 @@ body {
 .h1 {
   background-color:black;
   color: white;
+}
+
+header, em {
+  font-size: 400px;
 }

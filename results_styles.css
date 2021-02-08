@@ -5,3 +5,8 @@
 .large-2 {
     height: 70px;
 }
+
+#video {
+    display: block;
+    margin: 0 auto;
+}
