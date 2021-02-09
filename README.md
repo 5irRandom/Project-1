@@ -16,12 +16,10 @@ We wanted to watch a music video and have the lyrics to the song displayed so th
 <li>SO THAT I CAN sing the lyrics along with the video for my own private karoke session</li>
 <br>
 
-# Obstacles
-<li>
-<br>
-
 # Screenshots
+![image](https://user-images.githubusercontent.com/74076318/107309095-6e466580-6a4f-11eb-8afd-a7a2823725f1.png)
 
+![image](https://user-images.githubusercontent.com/74076318/107309800-c2057e80-6a50-11eb-9af9-92e1c982a5d5.png)
 <br>
 
 # API reference 
@@ -32,6 +30,12 @@ https://lyricsovh.docs.apiary.io/#reference</li>
 <li>YouTube API Docs <br>
 https://developers.google.com/youtube/v3/docs/search/list</li>
 
+<br>
+# GitHub Pages Link
+
+<a href="https://5irrandom.github.io/Project-1/">Link</a>
+
+<br>
 # Credits
 
 <li>get.foundation</li>
