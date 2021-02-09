@@ -12,6 +12,7 @@ storageString = localStorage.getItem('storage');
 if (storageString !== null) {
     var buttonsStrings = storageString.split(", ");
 }
+var clearButton = document.getElementById("clear");
 
 // Calls the lyrics api and then stores it to sessionStorage
 function getLyrics(artist, title) {
@@ -75,15 +76,12 @@ function buttonCreate() {
             }, 500);
         })
     }
-    var clearButton = document.createElement("button");
-    clearButton.textContent = "Clear";
-    clearButton.setAttribute('class', 'button alert');
-    buttonPlace.appendChild(clearButton);
-    clearButton.addEventListener("click", function (event) {
-        localStorage.clear();
-        location.reload();
-    })
 }
+
+clearButton.addEventListener("click", function (event) {
+    localStorage.clear();
+    location.reload();
+})
 
 if (storageString !== null) {
 buttonCreate();
