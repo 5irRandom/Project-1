@@ -112,12 +112,12 @@ searchButton.addEventListener("click", function (event) {
         title = document.getElementById("songInput").value;
         titleString += ", " + title;
         artistString += ", " + artist;
-        localStorage.setItem('artistStorage', artistString);
-        localStorage.setItem('titleStorage', titleString);
         getLyrics(artist, title);
         getVideo(title + " " + artist);
         setInterval(function(){
             if (videoDone === true && lyricsDone === true) {
+                localStorage.setItem('titleStorage', titleString);
+                localStorage.setItem('artistStorage', artistString);
                 document.location.href = 'results-page.html'
             } 
             
