@@ -31,9 +31,6 @@ We will be using lyrics.ovh and a YouTube music API.
 https://lyricsovh.docs.apiary.io/#reference</li>
 <li>YouTube API Docs <br>
 https://developers.google.com/youtube/v3/docs/search/list</li>
-<li>YouTube API IFRAME<br>
-https://developers.google.com/youtube/iframe_api_reference</li>
-<br>
 
 # Credits
 
