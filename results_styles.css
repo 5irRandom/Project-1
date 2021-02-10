@@ -2,6 +2,15 @@
     margin: 30px;
 }
 
+body {
+    background-color:rgb(37, 37, 37)
+}
+
+.h1, .h3, #lyrics {
+    color:white; 
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .large-2 {
     height: 70px;
 }
