@@ -27,7 +27,7 @@ function getLyrics(artist, title) {
         })
         .then(function (data) {
             if (data.lyrics === "") {
-                document.getElementById("modal").style.display = "block"
+                document.getElementById("modal").click();
             } else {
                 sessionStorage.setItem("lyrics", data.lyrics)
                 lyricsDone = true;
@@ -58,8 +58,8 @@ function getVideo(searchTerm) {
 }
 
 // Constant check to see if there is text in the fields, and if there isn't in one then it disables the search button
-setInterval(function(){
-    if(!$('#artistInput').val() || !$('#songInput').val()) {
+setInterval(function () {
+    if (!$('#artistInput').val() || !$('#songInput').val()) {
         searchButton.classList.add("disabled");
     } else {
         searchButton.classList.remove("disabled");
@@ -80,7 +80,7 @@ function buttonCreate() {
         button.addEventListener("click", function (event) {
             getLyrics(artistStorage[this.getAttribute('value')], titleStorage[this.getAttribute('value')]);
             getVideo(this.textContent);
-            setInterval(function(){
+            setInterval(function () {
                 if (videoDone === true && lyricsDone === true) {
                     document.location.href = 'results-page.html'
                 }
@@ -114,13 +114,13 @@ searchButton.addEventListener("click", function (event) {
         artistString += ", " + artist;
         getLyrics(artist, title);
         getVideo(title + " " + artist);
-        setInterval(function(){
+        setInterval(function () {
             if (videoDone === true && lyricsDone === true) {
                 localStorage.setItem('titleStorage', titleString);
                 localStorage.setItem('artistStorage', artistString);
                 document.location.href = 'results-page.html'
-            } 
-            
+            }
+
         }, 500);
     }
 })
