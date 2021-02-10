@@ -1,35 +1,18 @@
-/* @import 'settings'; */
-@import 'foundation';
-/* @import 'util/util'; */
-
-/* $foundation-palette: (
-  primary: #1779ba,
-  secondary: #767676,
-  success: #3adb76,
-  warning: #ffae00,
-  alert: #cc4b37,
-);
-$white: #fefefe;
-$black: #0a0a0a;
-$body-font-color: white;
-
-@include add-foundation-colors; */
-
 body {
-  background-color: black;
+  background-color:rgb(37, 37, 37)
 }
 
-.grid-container {
-    background-color: #F1F1F1;
-    text-align: center;
-    padding: 20px;
-  }
-
-.h1 {
-  background-color:black;
-  color: white;
+.h1, .h3, .h5 {
+  color:white; 
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-header, em {
-  font-size: 400px;
+#buttonPlace {
+  display: flex;
+  flex-direction: column;
+}
+
+#buttonPlace button {
+  width: 255px;
+  margin: 5px auto;
 }
