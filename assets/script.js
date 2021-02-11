@@ -38,23 +38,20 @@ function getLyrics(artist, title) {
 
 // Minor WIP but it does work by just inputting a search term, it will then first result's video link
 function getVideo(searchTerm) {
-    var videoLink = "https://youtube.com/embed/" + "UqLRqzTp6Rk"
-    sessionStorage.setItem("videoLink", videoLink)
-    videoDone = true;
-    // fetch(youtubeURL + searchTerm)
-    // .then(response => {
-    //     return response.json()
-    // })
-    // .then (data => {
-    //     var videoId = data.items[0].id.videoId
-    //     var videoLink = "https://youtube.com/embed/" + videoId
-    //     sessionStorage.setItem("videoLink", videoLink)
-    //     videoDone = true;
-    // })
-    // .catch(err => {
-    //     console.log("Error: " + err)
-    //     document.getElementById("modal").style.display = "block"
-    // });
+    fetch(youtubeURL + searchTerm)
+    .then(response => {
+        return response.json()
+    })
+    .then (data => {
+        var videoId = data.items[0].id.videoId
+        var videoLink = "https://youtube.com/embed/" + videoId
+        sessionStorage.setItem("videoLink", videoLink)
+        videoDone = true;
+    })
+    .catch(err => {
+        console.log("Error: " + err)
+        document.getElementById("modal").style.display = "block"
+    });
 }
 
 // Constant check to see if there is text in the fields, and if there isn't in one then it disables the search button
@@ -70,8 +67,6 @@ setInterval(function () {
 function buttonCreate() {
     buttonPlace = document.getElementById("buttonPlace");
     for (i = 1; i < titleStorage.length; i++) {
-        console.log(titleStorage[i]);
-        console.log(artistStorage[i]);
         var button = document.createElement("button");
         button.textContent = (titleStorage[i] + " " + artistStorage[i]);
         button.classList.add("button");
@@ -99,8 +94,6 @@ clearButton.addEventListener("click", function (event) {
 if (titleString !== null) {
     buttonCreate();
 }
-
-
 
 // Controls the search button as well as actually running the searches
 searchButton.addEventListener("click", function (event) {
